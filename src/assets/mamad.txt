@@ -1,0 +1,26 @@
+PURPLE => MAIN TEXT : SOMETHING ABOUT WHAT IS TASKIFY FUTERS 
+
+GREEN BOXES => 4 : limitless animations and technology like 3ds
+
+BOX 1 => it shows gsap code 
+BOX 2 => talks about no matter what we design every ui design 
+BOX 3 => we can use everything like 3d models 
+BOX 4 => talks about greenstock
+
+
+BLUE BOXES  => 4 : optimization and 
+
+BOX 1 => optimization process
+BOX 2 => talks about with anomation and models we keep website light  
+BOX 3 => a screen shot of an optimized code
+BOX 4 => talks about serverside security
+
+PINK BOXES  => 4: customer service 
+
+BOX 1 => 
+BOX 2 =>
+BOX 3 =>
+
+
+
+

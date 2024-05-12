@@ -4,7 +4,7 @@ import SplitType from "split-type";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function About() {
+export default async function About() {
   gsap.registerPlugin(ScrollTrigger);
 
   let text;

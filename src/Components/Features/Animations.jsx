@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react'
-import AnimationIcon from '@mui/icons-material/Animation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -51,7 +50,7 @@ export default function Animations() {
                 <div className='flex h-[386px] items-center flex-col m-0'>
                     <div ref={icon} className='flex items-center flex-col m-0'>
                         <div className="icon-shadow m-0 bg-green-600"></div>
-                        <AnimationIcon className='text-[#dfe4e9] absolute mt-1' />
+                 {/* animations icon */}
                     </div>
                     <span ref={iline} className='w-[3px]   rounded border-roanded h-0 greenline  mt-14'></span>
                     

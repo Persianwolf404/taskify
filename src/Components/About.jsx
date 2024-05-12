@@ -4,66 +4,59 @@ import SplitType from "split-type";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default  function About() {
+export default function About() {
   gsap.registerPlugin(ScrollTrigger);
 
   let text;
 
   useEffect(() => {
-  function runSplit() {
-    let currentElement = document.getElementById("target");
-    const linesEl = document.querySelectorAll(".line");
-    const updates = [];
+    function runSplit() {
+      let currentElement = document.getElementById("target");
+      text = new SplitType(currentElement, { types: "lines, words" });
 
-    linesEl.forEach((lineItem, lineIndex) => {
-      const words = lineItem.querySelectorAll(".word");
-      const lineUpdates = [];
-      words.forEach((wordItem, wordIndex) => {
-        const lineNumber = lineIndex + 1;
-        const wordNumber = wordIndex + 1;
-        lineUpdates.push(() => {
+      const linesEl = document.querySelectorAll(".line");
+      linesEl.forEach((lineItem, lineIndex) => {
+        const words = lineItem.querySelectorAll(".word");
+        words.forEach((wordItem, wordIndex) => {
+          const lineNumber = lineIndex + 1;
+          const wordNumber = wordIndex + 1;
           wordItem.classList.remove("word");
           wordItem.classList.add("word", `word-${lineNumber}-${wordNumber}`);
         });
-      });
-      lineUpdates.push(() => {
         lineItem.classList.remove("line");
         lineItem.classList.add("line", `line-${lineIndex + 1}`);
         lineItem.innerHTML += `<div class="line-mask"></div>`;
       });
-      updates.push(...lineUpdates);
-    });
-    updates.forEach((update) => update());
-  }
-
+    }
 
     runSplit();
     window.addEventListener("resize", function () {
       text.revert();
       runSplit();
+      anime();
     });
+    const anime = () => {
+      const myEl = document.querySelectorAll(".line");
+      myEl.forEach((triggerElement) => {
+        const targetElement = triggerElement.querySelector(".line-mask");
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: triggerElement,
+            start: "top 65%",
+            end: "bottom 65%",
+            scrub: 1,
+        
+          },
+        });
 
-    const myEl = document.querySelectorAll(".line");
-    myEl.forEach((triggerElement) => {
-      const lineIndex = parseInt(triggerElement.classList[1].split("-")[1]); // Extract line index from class
-      const targetElement = triggerElement.querySelector(".line-mask");
-
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: triggerElement,
-          start: "top 65%",
-          end: "bottom 65%",
-          scrub: 1,
-        },
+        tl.to(targetElement, {
+          width: "0%",
+          duration: 1,
+        });
       });
-
-      tl.to(targetElement, {
-        width: "0%",
-        duration: 1,
-      });
-    });
-  }),
-    [];
+    };
+    anime();
+  }, []);
 
   return (
     <section className="flex  w-full mt-20 relative">

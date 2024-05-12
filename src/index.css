@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Freeman");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -59,6 +59,7 @@ svg circle {
 
 .freeman {
   font-family: "Freeman", sans-serif !important;
+  
 }
 
 .greenline {

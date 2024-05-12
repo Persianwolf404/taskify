@@ -7,8 +7,7 @@ function Navbar() {
     <>
       <section className="w-[90%] nava flex justify-between fixed items-center py-3">
         <Image alt={"logo"} src={"/logo.png"} className="m-0" width={150} height={1} ></Image>
-        
-        <Process />
+                <Process />
       </section>
     </>
   );

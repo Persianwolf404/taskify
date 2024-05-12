@@ -1,81 +1,87 @@
-import React, { useRef, useEffect } from 'react'
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+"use client"
+import React, { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MdAnimation } from "react-icons/md";
 
 export default function Animations() {
+  gsap.registerPlugin(ScrollTrigger);
+  const icon = useRef(null);
+  const ihead = useRef(null);
+  const itext = useRef(null);
+  const iline = useRef(null);
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: icon.current,
+          start: "top 65%",
+          end: "top 65%",
+          toggleActions: "play none reverse none",
+        },
+      });
 
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(ScrollTrigger);
-    }
-    const icon = useRef(null);
-    const ihead = useRef(null);
-    const itext = useRef(null);
-    const iline = useRef(null);
-    useEffect(() => {
-        let ctx = gsap.context(() => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: icon.current,
-                    start: 'top 65%',
-                    end: 'top 65%',
-                    toggleActions: 'play none reverse none',
-                },
-            });
+      tl.from(icon.current, {
+        opacity: 0,
+        duration: 0.3,
+      })
+        .from(
+          ihead.current,
+          {
+            delay: 0.3,
+            x: -10,
+            opacity: 0,
+            duration: 0.3,
+          },
+          "-=0.3"
+        )
+        .addLabel("mmd")
+        .to(
+          iline.current,
+          {
+            height: "300px",
+            duration: 0.4,
+          },
+          "mmd"
+        )
+        .from(itext.current, {
+          opacity: 0,
+          x: -20,
+        });
+    });
 
-            tl.from(icon.current, {
-                opacity: 0,
-                duration: 0.3,
-            })
-                .from(ihead.current, {
-                    delay: 0.3,
-                    x: -10,
-                    opacity: 0,
-                    duration: 0.3,
-                }, '-=0.3')
-                .addLabel("mmd")
-                .to(iline.current, {
-                    height: '300px',
-                    duration: 0.4,
-                }, "mmd")
-                .from(itext.current, {
-                    opacity: 0,
-                    x: -20,
-                })
-        })
-
-        return () => ctx.revert()
-    }, [])
-    return (
-        <div className='text-[#efefef] flex flex-col mx-[50px] my-0'>
-            <div className='w-full flex'>
-                <div className='flex h-[386px] items-center flex-col m-0'>
-                    <div ref={icon} className='flex items-center flex-col m-0'>
-                        <div className="icon-shadow m-0 bg-green-600"></div>
-                 {/* animations icon */}
-                    </div>
-                    <span ref={iline} className='w-[3px]   rounded border-roanded h-0 greenline  mt-14'></span>
-                    
-                </div>
-                <div className='m-0 flex flex-col'>
-                    <h3 ref={ihead} className='mona ml-[50px] font-[500]  text-[24px]'>
-                        Animations
-                    </h3>
-                    <h2 ref={itext} className='leading-[52px] mt-11 text-[50px] ml-[45px]'>
-                        <span className='text-[#3DA64E]'>
-                            Revolutionize Interaction <br />
-                        </span>
-                        Setting a Benchmark in Digital <br />
-                        Engagement Excellence
-                    </h2>
-
-                </div>
-
-            </div>
-           <div className="w-full"></div>
-
-
-
+    return () => ctx.revert();
+  }, []);
+  return (
+    <div className="text-[#efefef] flex flex-col mx-[50px] my-0">
+      <div className="w-full flex">
+        <div className="flex h-[386px] items-center flex-col m-0">
+          <div ref={icon} className="flex relative items-center flex-col m-0">
+            <div className="icon-shadow m-0 bg-green-600"></div>
+            <MdAnimation className="mt-2 text-xl absolute" />
+          </div>
+          <span
+            ref={iline}
+            className="w-[3px]   rounded border-roanded h-0 greenline  mt-14"
+          ></span>
         </div>
-    )
+        <div className="m-0 flex flex-col">
+          <h3 ref={ihead} className="freeman ml-[50px] font-[500]  text-[24px]">
+            Animations
+          </h3>
+          <h2
+            ref={itext}
+            className="leading-[52px] mt-11 text-[50px] ml-[45px]"
+          >
+            <span className="text-[#3DA64E]">
+              Revolutionize Interaction <br />
+            </span>
+            Setting a Benchmark in Digital <br />
+            Engagement Excellence
+          </h2>
+        </div>
+      </div>
+      <div className="w-full"></div>
+    </div>
+  );
 }

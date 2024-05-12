@@ -1,13 +1,12 @@
-"use client";
+"use client"
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
+import { LiaAtomSolid } from "react-icons/lia";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, Flip);
-}
+gsap.registerPlugin(ScrollTrigger, Flip);
 
 function Hero() {
   const taskify = useRef(null);
@@ -45,7 +44,7 @@ function Hero() {
     }
 
     gsap.to(iconRef.current, {
-      rotation: 360,
+      rotation: 700,
       transition: 0.5,
       ease: "Leaner",
       scrollTrigger: {
@@ -104,11 +103,7 @@ function Hero() {
               className="
                 flex  
                 items-center
-                text-[6.5em]/** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
-
+                text-[6.5em]
                 m-auto
                 leading-[1.1]
                 font-medium
@@ -121,10 +116,9 @@ export default nextConfig;
                 ml-[0.2em]
                 mr-[0.2em]"
             >
-              <i
-                ref={iconRef}
-                className="text-[#08B9B5] text-[25px] fas fa-asterisk"
-              ></i>
+              <span ref={iconRef}>
+                <LiaAtomSolid className="text-[#08B9B5] text-5xl" />
+              </span>
             </span>
             <div className="m-0 w-[150px]" />
           </div>
@@ -135,7 +129,6 @@ export default nextConfig;
               ref={taskify}
               className=" m-0 mr-3 text-[5.5em] leading-[1.1] text-[#AAB2BB] font-medium"
             >
-              adssad
               Taskify
             </span>
             <div ref={Fostersmainparent} className="m-0">

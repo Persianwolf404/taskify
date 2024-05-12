@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useEffect } from "react";
 import Cleanup from "./Cleanup";
 import SplitType from "split-type";
@@ -6,9 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function About() {
-  if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger);
-  }
+  gsap.registerPlugin(ScrollTrigger);
 
   let text;
 
@@ -23,7 +21,6 @@ export default function About() {
         words.forEach((wordItem, wordIndex) => {
           const lineNumber = lineIndex + 1;
           const wordNumber = wordIndex + 1;
-
           wordItem.classList.remove("word");
           wordItem.classList.add("word", `word-${lineNumber}-${wordNumber}`);
         });
@@ -37,29 +34,29 @@ export default function About() {
     window.addEventListener("resize", function () {
       text.revert();
       runSplit();
+      anime();
     });
+    const anime = () => {
+      const myEl = document.querySelectorAll(".line");
+      myEl.forEach((triggerElement) => {
+        const targetElement = triggerElement.querySelector(".line-mask");
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: triggerElement,
+            start: "top 65%",
+            end: "bottom 65%",
+            scrub: 1,
+          },
+        });
 
-    const myEl = document.querySelectorAll(".line");
-    myEl.forEach((triggerElement) => {
-      const lineIndex = parseInt(triggerElement.classList[1].split("-")[1]);
-      const targetElement = triggerElement.querySelector(".line-mask");
-
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: triggerElement,
-          start: "top 65%",
-          end: "bottom 65%",
-          scrub: 1,
-        },
+        tl.to(targetElement, {
+          width: "0%",
+          duration: 1,
+        });
       });
-
-      tl.to(targetElement, {
-        width: "0%",
-        duration: 1,
-      });
-    });
-  }),
-    [];
+    };
+    anime();
+  }, []);
 
   return (
     <section className="flex  w-full mt-20 relative">

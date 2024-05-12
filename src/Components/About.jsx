@@ -4,31 +4,38 @@ import SplitType from "split-type";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default async function About() {
+export default  function About() {
   gsap.registerPlugin(ScrollTrigger);
 
   let text;
 
   useEffect(() => {
-    async function runSplit() {
-      let currentElement = document.getElementById("target");
-      text = new SplitType(currentElement, { types: "lines, words" });
+  function runSplit() {
+    let currentElement = document.getElementById("target");
+    const linesEl = document.querySelectorAll(".line");
+    const updates = [];
 
-      const linesEl = document.querySelectorAll(".line");
-      linesEl.forEach((lineItem, lineIndex) => {
-        const words = lineItem.querySelectorAll(".word");
-        words.forEach((wordItem, wordIndex) => {
-          const lineNumber = lineIndex + 1;
-          const wordNumber = wordIndex + 1;
-
+    linesEl.forEach((lineItem, lineIndex) => {
+      const words = lineItem.querySelectorAll(".word");
+      const lineUpdates = [];
+      words.forEach((wordItem, wordIndex) => {
+        const lineNumber = lineIndex + 1;
+        const wordNumber = wordIndex + 1;
+        lineUpdates.push(() => {
           wordItem.classList.remove("word");
           wordItem.classList.add("word", `word-${lineNumber}-${wordNumber}`);
         });
+      });
+      lineUpdates.push(() => {
         lineItem.classList.remove("line");
         lineItem.classList.add("line", `line-${lineIndex + 1}`);
         lineItem.innerHTML += `<div class="line-mask"></div>`;
       });
-    }
+      updates.push(...lineUpdates);
+    });
+    updates.forEach((update) => update());
+  }
+
 
     runSplit();
     window.addEventListener("resize", function () {

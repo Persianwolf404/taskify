@@ -5,12 +5,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function About() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  let text;
+
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    let text;
-
-    function runSplit() {
+    async function runSplit() {
       let currentElement = document.getElementById("target");
       text = new SplitType(currentElement, { types: "lines, words" });
 
@@ -24,21 +24,17 @@ export default function About() {
           wordItem.classList.remove("word");
           wordItem.classList.add("word", `word-${lineNumber}-${wordNumber}`);
         });
-
         lineItem.classList.remove("line");
         lineItem.classList.add("line", `line-${lineIndex + 1}`);
-
         lineItem.innerHTML += `<div class="line-mask"></div>`;
       });
     }
 
-    function handleResize() {
+    runSplit();
+    window.addEventListener("resize", function () {
       text.revert();
       runSplit();
-    }
-
-    runSplit();
-    window.addEventListener("resize", handleResize);
+    });
 
     const myEl = document.querySelectorAll(".line");
     myEl.forEach((triggerElement) => {
@@ -59,14 +55,11 @@ export default function About() {
         duration: 1,
       });
     });
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  }),
+    [];
 
   return (
-    <section className="flex w-full mt-20 relative">
+    <section className="flex  w-full mt-20 relative">
       <Cleanup />
       <div className="w-[50%] flex justify-start text-[3.2em] leading-[1.2]">
         <h2 className="w-[800px] ">

@@ -1,4 +1,3 @@
-"use client"
 import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -6,7 +5,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function Animations() {
 
-    gsap.registerPlugin(ScrollTrigger);
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+    }
     const icon = useRef(null);
     const ihead = useRef(null);
     const itext = useRef(null);

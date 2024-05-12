@@ -4,8 +4,6 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default function Triplead() {
-  gsap.registerPlugin(ScrollTrigger);
-
   const container = useRef(null);
   const first = useRef(null);
   const second = useRef(null);

@@ -5,7 +5,9 @@ import { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
 
-gsap.registerPlugin(ScrollTrigger, Flip);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, Flip);
+}
 
 function Hero() {
   const taskify = useRef(null);

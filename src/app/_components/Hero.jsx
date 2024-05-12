@@ -104,7 +104,11 @@ function Hero() {
               className="
                 flex  
                 items-center
-                text-[6.5em]
+                text-[6.5em]/** @type {import('next').NextConfig} */
+const nextConfig = {};
+
+export default nextConfig;
+
                 m-auto
                 leading-[1.1]
                 font-medium
@@ -131,6 +135,7 @@ function Hero() {
               ref={taskify}
               className=" m-0 mr-3 text-[5.5em] leading-[1.1] text-[#AAB2BB] font-medium"
             >
+              adssad
               Taskify
             </span>
             <div ref={Fostersmainparent} className="m-0">

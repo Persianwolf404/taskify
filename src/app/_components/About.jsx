@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect } from "react";
 import Cleanup from "./Cleanup";
 import SplitType from "split-type";
@@ -37,23 +37,26 @@ export default function About() {
       anime();
     });
     const anime = () => {
-      const myEl = document.querySelectorAll(".line");
-      myEl.forEach((triggerElement) => {
-        const targetElement = triggerElement.querySelector(".line-mask");
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: triggerElement,
-            start: "top 65%",
-            end: "bottom 65%",
-            scrub: 1,
-          },
-        });
 
-        tl.to(targetElement, {
-          width: "0%",
-          duration: 1,
-        });
-      });
+
+  const myEl = document.querySelectorAll(".line");
+  myEl.forEach((triggerElement) => {
+    const targetElement = triggerElement.querySelector(".line-mask");
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: triggerElement,
+        start: "top 65%",
+        end: "bottom 65%",
+        scrub: 1,
+      },
+    });
+    tl.to(targetElement, {
+      width: "0%",
+      duration: 1,
+    });
+  });
+ 
+
     };
     anime();
   }, []);

@@ -1,8 +1,10 @@
-"use client"
-import React, { useRef, useEffect } from "react";
+"use client";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdAnimation } from "react-icons/md";
+import Infobox from "../Infobox";
+import Image from "next/image";
 
 export default function Animations() {
   gsap.registerPlugin(ScrollTrigger);
@@ -52,6 +54,10 @@ export default function Animations() {
 
     return () => ctx.revert();
   }, []);
+
+ 
+
+
   return (
     <div className="text-[#efefef] flex flex-col mx-[50px] my-0">
       <div className="w-full flex">
@@ -62,14 +68,11 @@ export default function Animations() {
           </div>
           <span
             ref={iline}
-            className="w-[3px]   rounded border-roanded h-0 greenline  mt-14"
+            className="w-[3px] rounded border-roanded h-0 greenline  mt-14"
           ></span>
         </div>
         <div className="m-0 flex flex-col">
-          <h3
-            ref={ihead}
-            className={` ml-[50px] font-[500]  text-[24px]`}
-          >
+          <h3 ref={ihead} className={` ml-[50px] font-[500]  text-[24px]`}>
             Animations
           </h3>
           <h2
@@ -84,7 +87,21 @@ export default function Animations() {
           </h2>
         </div>
       </div>
-      <div className="w-full"></div>
+      <div className="border-gray-800 border-2 rounded-md w-full ">
+        <Image
+          src={"/gsap_animation.avif"}
+          width={10000}
+          height={1}
+          className="!m-0 "
+        ></Image>
+      </div>
+      <span className="w-[3px] rounded border-roanded h-[300px] mt-2 ml-4 both-fade-greenline "></span>
+      <div className="w-full h-[550px] relative ">
+        <Infobox />
+      </div>
+      <div className="w-full h-[550px] relative ">
+        <Infobox />
+      </div>
     </div>
   );
 }

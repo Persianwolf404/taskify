@@ -66,7 +66,10 @@ export default function Animations() {
           ></span>
         </div>
         <div className="m-0 flex flex-col">
-          <h3 ref={ihead} className="freeman ml-[50px] font-[500]  text-[24px]">
+          <h3
+            ref={ihead}
+            className={` ml-[50px] font-[500]  text-[24px]`}
+          >
             Animations
           </h3>
           <h2

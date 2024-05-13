@@ -1,15 +1,9 @@
- @import url('https://fonts.googleapis.com/css?family=Sora');
- @import url('https://fonts.cdnfonts.com/css/mona-sans');
  @tailwind base;
  @tailwind components;
  @tailwind utilities;
 
-
  * {
-
    margin: 0 auto;
-   font-family: 'Helvetica', sans-serif;
-
  }
 
  body {
@@ -19,10 +13,6 @@
 
  .navapp {
    width: 90%;
- }
-
- .sora {
-   font-family: 'Sora' !important;
  }
 
  .app {
@@ -66,10 +56,6 @@
    color: red;
  }
 
- .mona {
-   font-family: 'Mona-Sans', sans-serif !important;
-
- }
 
  .greenline {
   background: linear-gradient(rgb(63, 185, 80), rgb(46, 160, 67), transparent);

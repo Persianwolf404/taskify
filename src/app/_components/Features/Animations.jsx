@@ -96,11 +96,8 @@ export default function Animations() {
         ></Image>
       </div>
       <span className="w-[3px] rounded border-roanded h-[300px] mt-2 ml-4 both-fade-greenline "></span>
-      <div className="w-full h-[550px] relative ">
-        <Infobox />
-      </div>
-      <div className="w-full h-[550px] relative ">
-        <Infobox />
+      <div className="w-[100%] h-[550px] relative ">
+        <Infobox color={"#02954A"} />
       </div>
     </div>
   );

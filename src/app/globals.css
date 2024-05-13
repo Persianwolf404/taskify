@@ -119,3 +119,6 @@ svg circle {
   height: 30px;
 }
 
+.blue__gradient {
+  filter: blur(170px);
+}

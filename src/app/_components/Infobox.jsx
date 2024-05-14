@@ -13,11 +13,11 @@ function Tilt(props) {
   return <div ref={tilt} {...rest} />;
 }
 
-const Infobox = (props) => {
+const Infobox = ({ color, Children }) => {
   const options = {
     scale: 1,
     speed: 500,
-    max: 2,
+    max: 1.5,
   };
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -48,15 +48,15 @@ const Infobox = (props) => {
 
   const beforeStyle = {
     display: isVisible ? "block" : "none",
-    left: `${cursorX - 145}px`, // Position relative to container
-    top: `${cursorY - 145}px`, // Position relative to container
+    left: `${cursorX - 145}px`, 
+    top: `${cursorY - 145}px`, 
     width: "300px",
     height: "300px",
     borderRadius: "50%",
-    backgroundColor: props.color, // Customize color
+    backgroundColor: color, 
     position: "absolute",
-    pointerEvents: "none", // Prevent interaction with the before element
-    zIndex: 1, // Ensure the before element stays above other content
+    pointerEvents: "none",
+    zIndex: 1,
   };
 
   return (
@@ -71,6 +71,7 @@ const Infobox = (props) => {
           style={beforeStyle}
           className="blue__gradient before:content-['']"
         />
+        {Children && <Children />}
       </div>
     </Tilt>
   );

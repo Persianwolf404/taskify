@@ -9,7 +9,6 @@ import Features from "./_components/Features";
 export default function Home() {
   return (
     <>
-      <p className="text-red">xzczxnmc,</p>
       <Sticky />
       <div className="navapp flex flex-col">
         <Navbar />

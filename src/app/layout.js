@@ -1,10 +1,11 @@
 import "./globals.css";
-import { Roboto } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 
-const roboto = Roboto({
-  subsets: ["latin"],
+const openSans = Open_Sans({
+  subsets: ["latin"], //
   weight: ["500", "700"],
 });
+
 
 export const metadata = {
   title: "shiot",
@@ -14,7 +15,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={openSans.className}>{children}</body>
     </html>
   );
 }
+

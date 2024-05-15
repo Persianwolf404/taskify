@@ -4,6 +4,8 @@ import {} from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdAnimation } from "react-icons/md";
+import { IoDiamondOutline } from "react-icons/io5";
+
 import Infobox from "./Infobox";
 import Image from "next/image";
 import { Work_Sans } from "next/font/google";
@@ -14,24 +16,59 @@ const workSans = Work_Sans({
 });
 
 export default function Features() {
-  gsap.registerPlugin(ScrollTrigger);
+  const pedaret = useRef(null);
+  const elegance_first_line = useRef(null);
+  const elegance_second_line = useRef(null);
+  const elegance_logo = useRef(null);
+  const elegance_text = useRef(null);
+  const elegance_paragraph = useRef(null);
   const code_sample_starting_point = useRef(null);
   const explnation_container = useRef(null);
   const explnation = useRef(null);
   const code_sample = useRef(null);
+  const code_sample_shadow = useRef(null);
   const icon = useRef(null);
   const ihead = useRef(null);
   const itext = useRef(null);
   const iline = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
     let ctx = gsap.context(() => {
+      const elegance_tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: pedaret.current,
+          start: " 65%",
+          end: " 65%",
+          toggleActions: "play none reverse none",
+          markers: true,
+        },
+      });
+
+      elegance_tl
+        .to(elegance_first_line.current, {
+          height: "150px",
+        })
+        .from(elegance_logo.current, {
+          opacity: 0,
+        })
+        .from(elegance_text.current, {
+          x: "-30",
+          opacity: "0",
+        })
+        .to(elegance_second_line.current, {
+          height: "100%"
+        })
+        .from(elegance_paragraph.current, {
+          opacity: 0,
+          x: "-20"
+        });
+
       const code_sample_tl = gsap.timeline({
         scrollTrigger: {
           trigger: code_sample_starting_point.current,
           start: "20% 65%",
           end: "20% 65%",
           toggleActions: "play none reverse none",
-          markers: true,
         },
       });
 
@@ -43,10 +80,16 @@ export default function Features() {
         .from(explnation_container.current, {
           opacity: 0,
           scale: 0.9,
+          duration: 0.2,
         })
         .from(explnation.current, {
           x: "-10",
           opacity: 0,
+          duration: 0.2,
+        })
+        .from(code_sample_shadow.current, {
+          opacity: 0,
+          duration: 0.2,
         });
 
       const tl = gsap.timeline({
@@ -73,10 +116,10 @@ export default function Features() {
           "-=0.3"
         )
         .addLabel("mmd")
-        .to(
+        .from(
           iline.current,
           {
-            height: "300px",
+            height: "0",
             duration: 0.4,
           },
           "mmd"
@@ -86,6 +129,7 @@ export default function Features() {
           x: -20,
         });
     });
+
     return () => ctx.revert();
   }, []);
 
@@ -101,7 +145,7 @@ export default function Features() {
           </div>
           <span
             ref={iline}
-            className="w-[3px] rounded border-roanded h-0 greenline  mt-14"
+            className="w-[3px] rounded border-roanded h-[300px] greenline  mt-14"
           ></span>
         </div>
         <div className="m-0 flex flex-col">
@@ -120,6 +164,7 @@ export default function Features() {
           </h2>
         </div>
       </div>
+
       <span ref={code_sample_starting_point}></span>
       <div
         ref={code_sample}
@@ -150,8 +195,50 @@ export default function Features() {
             </p>
           </div>
         </div>
+        <span
+          ref={code_sample_shadow}
+          className="filter absolute bottom-0 right-[14%] rounded-full w-[500px] h-[500px] bg-[#02BAB2] z-[-1]"
+        />
       </div>
-      <span className="w-[3px] rounded border-roanded h-[300px] mt-2 ml-4 both-fade-greenline "></span>
+      <span ref={pedaret}>asdasd</span>
+      <span
+        ref={elegance_first_line}
+        className="w-[3px] rounded border-roanded h-0 mt-2 mb-10 ml-3 reverse-greenline "
+      ></span>
+      <div className="w-full flex">
+        <div className="flex h-[386px] items-center flex-col m-0">
+          <div
+            ref={elegance_logo}
+            className="flex relative items-center flex-col m-0"
+          >
+            <div className="icon-shadow m-0 bg-green-600"></div>
+            <IoDiamondOutline className="mt-1 rotate-[45] text-xl absolute" />
+          </div>
+          <span
+            ref={elegance_second_line}
+            className="w-[3px] rounded border-roanded h-0 greenline mt-14"
+          ></span>
+        </div>
+        <div className="m-0 flex flex-col">
+          <h3
+            ref={elegance_text}
+            className={`ml-[50px] font-[500]  text-[24px]`}
+          >
+            Elegance
+          </h3>
+          <h2
+            ref={elegance_paragraph}
+            className="leading-[57px] mt-11 text-[50px] ml-[45px]"
+          >
+            <span className="text-[#3DA64E]">
+              Innovating Web Design
+              <br />
+            </span>
+            Crafting Immersive Digital <br /> Experiences
+          </h2>
+        </div>
+      </div>
+
       <div className="w-full">
         <div className="w-[100%] h-[550px] relative ">
           <Infobox color={"#02954A"} Children={() => <></>} />

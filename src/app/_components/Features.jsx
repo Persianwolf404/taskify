@@ -175,9 +175,8 @@ export default function Features() {
       >
         <Image
           src={"/gsap_animation.avif"}
-          width={1714}
-          height={828}
-
+          width={2714}
+          height={1828}
           alt="gsap_code_sample"
         />
         <div

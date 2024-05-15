@@ -72,7 +72,6 @@ export default function Features() {
           start: "top 75%",
           end: "top 75%",
           toggleActions: "play none reverse none",
-          markers: true
         },
       });
 

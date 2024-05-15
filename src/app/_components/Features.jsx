@@ -16,13 +16,12 @@ const workSans = Work_Sans({
 });
 
 export default function Features() {
-  const pedaret = useRef(null);
+
   const elegance_first_line = useRef(null);
   const elegance_second_line = useRef(null);
   const elegance_logo = useRef(null);
   const elegance_text = useRef(null);
   const elegance_paragraph = useRef(null);
-  const code_sample_starting_point = useRef(null);
   const explnation_container = useRef(null);
   const explnation = useRef(null);
   const code_sample = useRef(null);
@@ -36,39 +35,44 @@ export default function Features() {
     let ctx = gsap.context(() => {
       const elegance_tl = gsap.timeline({
         scrollTrigger: {
-          trigger: pedaret.current,
-          start: " 65%",
-          end: " 65%",
+          trigger: elegance_logo.current,
+          start: "bottom 65%",
+          end: "bottom 65%",
           toggleActions: "play none reverse none",
-          markers: true,
         },
       });
 
       elegance_tl
         .to(elegance_first_line.current, {
-          height: "150px",
+          height: "100%",
+          duration: 0.2,
         })
         .from(elegance_logo.current, {
           opacity: 0,
+          duration: 0.2,
         })
         .from(elegance_text.current, {
           x: "-30",
           opacity: "0",
+          duration: 0.2,
         })
         .to(elegance_second_line.current, {
-          height: "100%"
+          height: "83%",
+          duration: 0.2,
         })
         .from(elegance_paragraph.current, {
           opacity: 0,
-          x: "-20"
+          x: "-20",
+          duration: 0.2,
         });
 
       const code_sample_tl = gsap.timeline({
         scrollTrigger: {
-          trigger: code_sample_starting_point.current,
-          start: "20% 65%",
-          end: "20% 65%",
+          trigger: explnation_container.current,
+          start: "top 75%",
+          end: "top 75%",
           toggleActions: "play none reverse none",
+          markers: true
         },
       });
 
@@ -103,7 +107,7 @@ export default function Features() {
 
       tl.from(icon.current, {
         opacity: 0,
-        duration: 0.3,
+        duration: 0.2,
       })
         .from(
           ihead.current,
@@ -111,16 +115,16 @@ export default function Features() {
             delay: 0.3,
             x: -10,
             opacity: 0,
-            duration: 0.3,
+            duration: 0.2,
           },
           "-=0.3"
         )
         .addLabel("mmd")
-        .from(
+        .to(
           iline.current,
           {
-            height: "0",
-            duration: 0.4,
+            height: "100%",
+            duration: 0.3,
           },
           "mmd"
         )
@@ -143,10 +147,12 @@ export default function Features() {
             <div className="icon-shadow m-0 bg-green-600"></div>
             <MdAnimation className="mt-2 text-xl absolute" />
           </div>
-          <span
-            ref={iline}
-            className="w-[3px] rounded border-roanded h-[300px] greenline  mt-14"
-          ></span>
+          <div className="flex relative h-[300px]">
+            <span
+              ref={iline}
+              className="w-[3px] absolute rounded border-roanded h-0  greenline  mt-14"
+            ></span>
+          </div>
         </div>
         <div className="m-0 flex flex-col">
           <h3 ref={ihead} className={`ml-[50px] font-[500]  text-[24px]`}>
@@ -165,7 +171,7 @@ export default function Features() {
         </div>
       </div>
 
-      <span ref={code_sample_starting_point}></span>
+ 
       <div
         ref={code_sample}
         className="border-gray-800 flex relative border-2 rounded-md w-full "
@@ -178,13 +184,13 @@ export default function Features() {
         ></Image>
         <div
           ref={explnation_container}
-          className="p-5 absolute flex flex-col top-[50%] rounded-lg right-[15%] w-[450px] min-h-[200px] border-2 border-gray-800 bg-[#141921]"
+          className="p-5 absolute flex flex-col top-[40%] rounded-lg right-[15%] w-[530px] min-h-[300px] border-2 border-gray-800 bg-[#141921]"
         >
           <div ref={explnation}>
-            <h2 className="text-[#1B924D] text-xl">
+            <h2 className="text-[#1B924D] text-3xl">
               GSAP: Crafting Web Magic!
             </h2>
-            <p className="text-lg mt-9 text-[#AAB2BB]">
+            <p className="text-2xl mt-9 text-[#AAB2BB]">
               See this code? It's like a magic wand for websites. With GSAP, we
               can make logos dance, buttons bounce, and text spin around—making
               the website look awesome and lively! It's like painting with
@@ -200,11 +206,13 @@ export default function Features() {
           className="filter absolute bottom-0 right-[14%] rounded-full w-[500px] h-[500px] bg-[#02BAB2] z-[-1]"
         />
       </div>
-      <span ref={pedaret}>asdasd</span>
-      <span
-        ref={elegance_first_line}
-        className="w-[3px] rounded border-roanded h-0 mt-2 mb-10 ml-3 reverse-greenline "
-      ></span>
+
+      <div className="flex mb-10 h-[150px] overflow-hidden relative m-0">
+        <span
+          ref={elegance_first_line}
+          className="w-[3px] rounded absolute border-roanded h-0 mb-10 ml-3 reverse-greenline "
+        ></span>
+      </div>
       <div className="w-full flex">
         <div className="flex h-[386px] items-center flex-col m-0">
           <div
@@ -214,10 +222,12 @@ export default function Features() {
             <div className="icon-shadow m-0 bg-green-600"></div>
             <IoDiamondOutline className="mt-1 rotate-[45] text-xl absolute" />
           </div>
-          <span
-            ref={elegance_second_line}
-            className="w-[3px] rounded border-roanded h-0 greenline mt-14"
-          ></span>
+          <div className="flex relative overflow-hidden h-full">
+            <span
+              ref={elegance_second_line}
+              className="w-[3px] rounded mb-2 border-roanded m h-0 greenline mt-14"
+            ></span>
+          </div>
         </div>
         <div className="m-0 flex flex-col">
           <h3

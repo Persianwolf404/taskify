@@ -175,11 +175,12 @@ export default function Features() {
       <div
         ref={code_sample}
         className="border-gray-800 flex relative border-2 rounded-md w-full "
+
       >
         <Image
           src={"/gsap_animation.avif"}
-          width={10000}
-          height={1}
+          width={1133}
+          height={547}
           className="!m-0 "
         ></Image>
         <div

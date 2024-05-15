@@ -5,7 +5,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdAnimation } from "react-icons/md";
 import { IoDiamondOutline } from "react-icons/io5";
-
 import Infobox from "./Infobox";
 import Image from "next/image";
 import { Work_Sans } from "next/font/google";
@@ -16,7 +15,6 @@ const workSans = Work_Sans({
 });
 
 export default function Features() {
-
   const elegance_first_line = useRef(null);
   const elegance_second_line = useRef(null);
   const elegance_logo = useRef(null);
@@ -39,7 +37,7 @@ export default function Features() {
           start: "bottom 65%",
           end: "bottom 65%",
           toggleActions: "play none reverse none",
-          markers: true
+          markers: true,
         },
       });
 
@@ -156,7 +154,7 @@ export default function Features() {
         </div>
         <div className="m-0 flex flex-col">
           <h3 ref={ihead} className={`ml-[50px] font-[500]  text-[24px]`}>
-            Animation 
+            Animation
           </h3>
           <h2
             ref={itext}
@@ -171,18 +169,18 @@ export default function Features() {
         </div>
       </div>
 
- 
       <div
         ref={code_sample}
-        className="border-gray-800 flex relative border-2 rounded-md w-full "
-
+        className=" border-gray-800 flex relative border-2 rounded-md w-full "
       >
         <Image
           src={"/gsap_animation.avif"}
-          width={1364}
-          height={654}
-          className="!m-0 "
-        ></Image>
+          sizes="(max-width: 768px) 100vw, 33vw"
+          width={1714}
+          height={828}
+
+          alt="gsap_code_sample"
+        />
         <div
           ref={explnation_container}
           className="p-5 absolute flex flex-col top-[40%] rounded-lg right-[15%] w-[530px] min-h-[300px] border-2 border-gray-800 bg-[#141921]"

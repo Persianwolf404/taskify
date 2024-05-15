@@ -39,6 +39,7 @@ export default function Features() {
           start: "bottom 65%",
           end: "bottom 65%",
           toggleActions: "play none reverse none",
+          markers: true
         },
       });
 

@@ -155,7 +155,7 @@ export default function Features() {
         </div>
         <div className="m-0 flex flex-col">
           <h3 ref={ihead} className={`ml-[50px] font-[500]  text-[24px]`}>
-            Animations
+            Animations 
           </h3>
           <h2
             ref={itext}

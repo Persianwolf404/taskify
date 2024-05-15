@@ -34,8 +34,8 @@ export default function Features() {
       const elegance_tl = gsap.timeline({
         scrollTrigger: {
           trigger: elegance_logo.current,
-          start: "top 55%",
-          end: "top 55%",
+          start: "top 40%",
+          end: "top 40%",
           toggleActions: "play none reverse none",
       
         },

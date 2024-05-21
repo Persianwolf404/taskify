@@ -41,7 +41,7 @@ export default function Features() {
           toggleActions: "play none reverse none",
         },
       });
-
+      
       gsap.from(tilted_box.current, {
         scrollTrigger: {
           trigger: tilted_box.current,

@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 import { useGLTF } from "@react-three/drei";
 
-export function Model(props) {
+export default function Model(props) {
   const { nodes, materials } = useGLTF("/tech.gltf");
   return (
     <group scale={2.5} {...props} dispose={null}>
@@ -9,9 +10,7 @@ export function Model(props) {
         geometry={nodes.Sphere001.geometry}
         material={materials["Material.002"]}
         position={[0, -0.001, -0.004]}
-      >
-
-      </mesh>
+      ></mesh>
       <mesh
         geometry={nodes["584830fecef1014c0b5e4aa2"].geometry}
         material={materials["584830fecef1014c0b5e4aa2"]}

@@ -1,4 +1,4 @@
-"use client"
+
 import "./globals.css";
 import Navbar from "./_components/Navbar";
 import Hero from "./_components/Hero";

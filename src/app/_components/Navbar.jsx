@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Process from "./Process";
 import Image from "next/image";

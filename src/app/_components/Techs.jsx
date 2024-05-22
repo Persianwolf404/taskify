@@ -23,10 +23,8 @@ function Techs() {
               rotateSpeed={0.5}
               enablePan={false}
             />
-
             <ambientLight intensity={1} />
             <directionalLight position={[0, 0, 10]} />
-
             <LazyModel />
           </Float>
         </Canvas>

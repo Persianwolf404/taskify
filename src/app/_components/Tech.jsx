@@ -1,9 +1,9 @@
 "use client";
-import React, {useMemo} from "react";
-import { useGLTF  } from "@react-three/drei";
+import React from "react";
+import { useGLTF } from "@react-three/drei";
 
 // Replace with your optimized Model component logic
-export default function Model(props) {
+export function Model(props) {
   const { nodes, materials } = useGLTF("/tech.gltf");
 
   // Use memoization to avoid unnecessary re-renders
@@ -13,7 +13,7 @@ export default function Model(props) {
         geometry={nodes.Sphere001.geometry}
         material={materials["Material.002"]}
         position={[0, -0.001, -0.004]}
-      />
+      ></mesh>
       <mesh
         geometry={nodes["584830fecef1014c0b5e4aa2"].geometry}
         material={materials["584830fecef1014c0b5e4aa2"]}

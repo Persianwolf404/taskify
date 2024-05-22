@@ -1,4 +1,3 @@
-
 import "./globals.css";
 import Navbar from "./_components/Navbar";
 import Hero from "./_components/Hero";
@@ -6,7 +5,9 @@ import About from "./_components/About";
 import Triplead from "./_components/Triplead";
 import Sticky from "./_components/Sticky";
 import Features from "./_components/Features";
-import Techs from "./_components/Techs";
+import { Suspense, lazy } from "react";
+
+const LazyTechs = lazy(() => import("./_components/Techs"));
 
 export default function Home() {
   return (
@@ -23,11 +24,12 @@ export default function Home() {
           <Features />
         </div>
         <div className="app">
-          <Techs/>
+          <Suspense fallback={<div>Loading...</div>}>
+            <LazyTechs />
+          </Suspense>
         </div>
         <div className="h-[100vh]"></div>
       </div>
-    
     </>
   );
 }

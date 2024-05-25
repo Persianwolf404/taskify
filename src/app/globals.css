@@ -144,3 +144,41 @@ svg circle {
 .filter {
   filter: blur(150px);
 }
+
+canvas {
+  display: block;
+}
+
+#imageContainer {
+  position: relative;
+  width: 780px;
+  height: 620px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  max-width: 100%;
+
+  transition: all ease 0.5s;
+}
+
+#imageContainer > * {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+extra stuff .jux-linx {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}

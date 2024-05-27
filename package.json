@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-three/drei": "^9.0.1",
     "gsap": "^3.12.5",
+    "gsap-trial": "^3.12.5",
     "next": "14.2.3",
     "next-unused": "^0.0.6",
     "react": "^18",

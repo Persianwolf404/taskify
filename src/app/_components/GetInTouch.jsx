@@ -1,51 +1,129 @@
 "use client";
-import React, { useRef, useEffect } from "react";
-import gsap from "gsap";
+import React, { useEffect, useRef } from "react";
+import { SiGooglegemini } from "react-icons/si";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
-const Marquee = ({ children }) => {
+const GetInTouch = () => {
   const marqueeRef = useRef(null);
-  const contentRef = useRef(null);
-
+  const getInTouch = useRef(null);
+  const trigger = useRef(null);
+  const line = useRef(null);
+  const privacy = useRef(null);
+  const taskify = useRef(null);
   useEffect(() => {
-    const marquee = marqueeRef.current;
-    const content = contentRef.current;
+    const marqueeElement = marqueeRef.current;
+    const content = marqueeElement.children;
+    const contentWidth = content[0].clientWidth * content.length;
+    const clone = marqueeElement.innerHTML;
+    marqueeElement.innerHTML += clone;
 
-    const contentWidth = content.offsetWidth;
-    const containerWidth = marquee.offsetWidth;
-    const duration = contentWidth / 50; 
-
-    const tl = gsap.timeline({ repeat: -1 });
-    tl.to(content, {
-      x: -(contentWidth - containerWidth),
-      duration: duration,
-      ease: "linear",
+    gsap.to(marqueeElement, {
+      x: -contentWidth,
+      ease: "none",
+      duration: 60,
+      repeat: -1,
     });
 
-    return () => {
-      tl.kill();
-    };
+    let ctx = gsap.context(() => {
+      gsap.from(getInTouch.current, {
+        scrollTrigger: {
+          trigger: getInTouch.current,
+          start: "top 70%",
+          end: "top 70%",
+          toggleActions: "play none reverse none",
+        },
+        opacity: 0,
+        scale: 0.7,
+        duration: 0.3,
+      });
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: trigger.current,
+          start: "bottom bottom",
+          end: "bottom bottom",
+          toggleActions: "play none reverse none",
+        },
+      });
+      tl.from(line.current, {
+        width: 0,
+        duration: 0.7,
+      })
+        .addLabel("mmd")
+        .from(
+          privacy.current,
+          {
+            opacity: 0,
+            x: 50,
+            duration: 0.7,
+          },
+          "mmd"
+        )
+        .from(
+          taskify.current,
+          {
+            opacity: 0,
+            x: "-50",
+            duration: 0.7,
+          },
+          "mmd"
+        );
+    });
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={marqueeRef} style={{ overflow: "hidden", whiteSpace: "nowrap" }}>
-      <div ref={contentRef}>{children}</div>
-    </div>
-  );
-};
-
-const GetInTouch = () => {
-  return (
-    <div className="w-full h-screen">
-      <div className="app h-full flex items-center text-center">
-        <div className="text-white mt-20 w-full">
-          <h2 className="text-7xl leading-[100px] font-bold ">
-            Ready To Get <br />
-            Started?
-          </h2>
-          <Marquee>
-            <p className="m-2 text-[150px]">TALK</p>
-          </Marquee>
+    <div
+      ref={trigger}
+      className="relative w-full flex items-center justify-center h-screen text-center "
+    >
+      <div className="text-white mt-20 w-full">
+        <div ref={getInTouch}>
+          <div className="flex justify-center">
+            <div className="m-0 relative  flex  group">
+              <a
+                href="#"
+                className="font-semi-bold cursor-pointer text-center first-line:text-3xl w z-20 text-[#05BAB3]"
+              >
+                Get in touch!
+              </a>
+              <span className="absolute h-full mt-2 border-white border-b-2 w-0 group-hover:w-full transition-all duration-300"></span>
+            </div>
+          </div>
+          <div className="w-full flex mt-10 justify-center relative m-0">
+            <h2 className="text-7xl leading-[100px] font-medium">
+              Ready To Get <br />
+              Started?
+            </h2>
+          </div>
         </div>
+        <div className="overflow-hidden whitespace-nowrap">
+          <div
+            ref={marqueeRef}
+            className="text-[#05BAB3] flex flex-nowrap cursor-pointer mt-10 pt-10 "
+          >
+            {[...Array(10)].map((_, index) => (
+              <div key={index} className="flex">
+                <span className="text-7xl mx-2">Reach Out</span>
+                <span className="flex items-center text-[150px] mx-2">
+                  <SiGooglegemini className="text-5xl my-auto " />
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div
+        ref={line}
+        className="absolute w-[98%] flex justify-between mb-5  border-b-2 border-[#AAB2BB] text-[#AAB2BB] bottom-10 text-start"
+      >
+        <span ref={taskify} className="mb-5 m-0">
+          Taskify team
+        </span>
+        <span ref={privacy} className="mb-5 m-0">
+          Privacy policy
+        </span>
       </div>
     </div>
   );

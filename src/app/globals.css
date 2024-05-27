@@ -11,10 +11,6 @@ body {
   overflow-x: hidden;
 }
 
-.navapp {
-  width: 90%;
-}
-
 .app {
   width: 85%;
 }
@@ -143,6 +139,10 @@ svg circle {
 }
 .filter {
   filter: blur(150px);
+}
+
+.bgd {
+  backdrop-filter: blur(40px);
 }
 
 canvas {

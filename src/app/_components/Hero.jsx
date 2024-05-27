@@ -90,12 +90,12 @@ function Hero() {
 
   return (
     <>
-      <section className=" Hero w-full h-[100vh] flex justify-center items-center ">
+      <section className="z-[-10] Hero w-full h-[100vh] flex justify-center items-center ">
         <div className="flex flex-col ">
           <p className="mb-[30px] text-[1.13em] font-normal leading-snug text-center text-[#5d6067]">
             Elevate Your Vision through Innovation & Expertise
           </p>
-          <div className="flex justify-center items-center ">
+          <div className="z-[-10] flex justify-center items-center ">
             <span className="text-[#c1c9d3] text-[5.5em] leading-[1.1] font-medium">
               Inspiring Change
             </span>
@@ -117,13 +117,13 @@ function Hero() {
                 mr-[0.2em]"
             >
               <span ref={iconRef}>
-                <LiaAtomSolid className="text-[#08B9B5] text-5xl" />
+                <LiaAtomSolid className="text-[#08B9B5] text-5xl " />
               </span>
             </span>
             <div className="m-0 w-[150px]" />
           </div>
 
-          <div className="m-0 mt-4 flex justify-center items-center">
+          <div className=" m-0 mt-4 flex justify-center items-center">
             <div className="m-0 w-[320px]" />
             <span
               ref={taskify}

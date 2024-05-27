@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef, useEffect } from "react";
-import {} from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdAnimation } from "react-icons/md";
@@ -16,6 +15,12 @@ const workSans = Work_Sans({
 });
 
 export default function Features() {
+  const bolt_box = useRef(null);
+  const bolt_icon = useRef(null);
+  const bolt_firstline = useRef(null);
+  const bolt_secondline = useRef(null);
+  const bolt_title = useRef(null);
+  const bolt_text = useRef(null);
   const tilted_box = useRef(null);
   const elegance_first_line = useRef(null);
   const elegance_second_line = useRef(null);
@@ -36,12 +41,12 @@ export default function Features() {
       const elegance_tl = gsap.timeline({
         scrollTrigger: {
           trigger: elegance_logo.current,
-          start: "top 40%",
-          end: "top 40%",
+          start: "top 70%",
+          end: "top 70%",
           toggleActions: "play none reverse none",
         },
       });
-      
+
       gsap.from(tilted_box.current, {
         scrollTrigger: {
           trigger: tilted_box.current,
@@ -81,8 +86,8 @@ export default function Features() {
       const code_sample_tl = gsap.timeline({
         scrollTrigger: {
           trigger: explnation_container.current,
-          start: "top 75%",
-          end: "top 75%",
+          start: "top 95%",
+          end: "top 95%",
           toggleActions: "play none reverse none",
         },
       });
@@ -110,11 +115,53 @@ export default function Features() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: icon.current,
-          start: "top 65%",
-          end: "top 65%",
+          start: "top 60%",
+          end: "top 60%",
           toggleActions: "play none reverse none",
         },
       });
+      const bolt_timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: bolt_icon.current,
+          start: "top 60%",
+          end: "top 60%",
+          toggleActions: "play none reverse none",
+        },
+      });
+      gsap.from(bolt_box.current, {
+        scrollTrigger: {
+          trigger: bolt_box.current,
+          start: "top 60%",
+          end: "top 60%",
+          toggleActions: "play none reverse none",
+        },
+        opacity: 0,
+        x: 50,
+      });
+
+      bolt_timeline
+        .to(bolt_firstline.current, {
+          height: "100%",
+          duration: 0.2,
+        })
+        .from(bolt_icon.current, {
+          opacity: 0,
+          duration: 0.2,
+        })
+        .from(bolt_title.current, {
+          x: "-30",
+          opacity: "0",
+          duration: 0.2,
+        })
+        .to(bolt_secondline.current, {
+          height: "100%",
+          duration: 0.2,
+        })
+        .from(bolt_text.current, {
+          opacity: 0,
+          x: "-20",
+          duration: 0.2,
+        });
 
       tl.from(icon.current, {
         opacity: 0,
@@ -372,24 +419,36 @@ export default function Features() {
           </div>
         </div>
         <div className="flex ml-3 relative m-0 h-[150px]">
-          <span className="w-[3px] absolute rounded border-roanded h-full  reverse-greenline  "></span>
+          <span
+            ref={bolt_firstline}
+            className="w-[3px] absolute rounded border-roanded h-0  reverse-greenline  "
+          ></span>
         </div>
         <div className="flex itmes ">
           <div className="m-0">
-            <div className="flex relative flex-col ml-1 mt-10 m-0">
+            <div
+              ref={bolt_icon}
+              className="flex relative flex-col ml-1 mt-10 m-0"
+            >
               <div className="icon-shadow m-0 bg-[#3fb950]"></div>
               <BsLightningCharge className="mt-2 text-xl absolute rotate-12" />
             </div>
             <div className="flex ml-3 relative m-0 mt-10 h-[300px]">
-              <span className="w-[3px] absolute rounded border-roanded h-full  greenline  "></span>
+              <span
+                ref={bolt_secondline}
+                className="w-[3px] absolute rounded border-roanded h-0  greenline  "
+              ></span>
             </div>
           </div>
           <div className="m-0 mt-10 flex flex-col">
-            <h3 ref={ihead} className={`ml-[50px] font-[500]  text-[24px]`}>
+            <h3
+              ref={bolt_title}
+              className={`ml-[50px] font-[500]  text-[24px]`}
+            >
               Responsive Web design
             </h3>
             <h2
-              ref={itext}
+              ref={bolt_text}
               className="leading-[52px] mt-11 text-[50px] ml-[45px]"
             >
               <span className="text-[#3fb950]">
@@ -400,7 +459,7 @@ export default function Features() {
             </h2>
           </div>
         </div>
-        <div className="w-full h-[400px]  ">
+        <div ref={bolt_box} className="w-full  h-[400px]  ">
           <Infobox
             color={"#3fb950"}
             Children={() => (
@@ -430,7 +489,6 @@ export default function Features() {
                       </div>
                     </div>
                   </div>
-               
                 </div>
               </>
             )}

@@ -29,6 +29,7 @@ export default function About() {
         lineItem.innerHTML += `<div class="line-mask"></div>`;
       });
     }
+    
 
     runSplit();
     window.addEventListener("resize", function () {

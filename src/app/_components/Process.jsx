@@ -1,8 +1,30 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { act, useEffect, useState } from "react";
 import { IoPlanet } from "react-icons/io5";
+import gsap from "gsap";
 
 const Process = () => {
+  const [active, setActive] = useState(false);
+  console.log(active);
+
+  useEffect(() => {
+    const element = document.getElementById("menu");
+    if (active) {
+      gsap.to(element, {
+        height: "800px",
+        duration: 1,
+      });
+      element.classList.add("border-b-2");
+    } else {
+      gsap.to(element, {
+        height: "0",
+        duration: 1,
+      });
+      setTimeout(function () {
+        element.classList.remove("border-b-2");
+      }, 900);
+    }
+  }, [active]);
   useEffect(() => {
     const svg = document.querySelector("svg");
     const progressBar = document.querySelector(".progress-bar");
@@ -40,7 +62,10 @@ const Process = () => {
 
   return (
     <>
-      <button className="cursor-pointer z-10 m-0 con flex justify-center items-center bg">
+      <button
+        onClick={() => setActive(!active)}
+        className="cursor-pointer z-10 m-0 con flex justify-center items-center bg"
+      >
         <svg
           className=" complete"
           height="80"

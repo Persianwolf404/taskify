@@ -14,17 +14,28 @@ const LazyTechs = lazy(() => import("./_components/Techs"));
 export default function Home() {
   return (
     <>
-      <div className="z-[100] flex border-b-2  text-white border-white fixed w-full h-[800px] bgd">
-        <div className="w-[70%] h-full flex justify-start items-end">
-          <div className="flex flex-col m-0 text-[130px]">
-            <span className="leading-[90px] text-[160px] m-0 ">Whatsapp</span>
-            <span className="m-0 text-[200px] leading-[190px] ">Instagram</span>
-            <span className="flex items-end leading-[130px] text-[220px]">
-              Book a call
-            </span>
+      <div
+        id="menu"
+        className="z-[100] overflow-hidden flex  text-white border-white fixed w-full h-0 bgd"
+      >
+        <div className="w-full h-full relative">
+          <div className="w-full h-full flex absolute">
+            <div className="w-[70%] h-full flex justify-start items-end">
+              <div className="flex flex-col m-0 text-[130px]">
+                <span className="leading-[90px] text-[130px] m-0 ">
+                  Whatsapp
+                </span>
+                <span className="m-0 text-[160px] leading-[180px] ">
+                  Instagram
+                </span>
+                <span className="flex items-end leading-[150px] text-[180px]">
+                  Book a call
+                </span>
+              </div>
+            </div>
+            <div className="w-[30%] h-full"></div>
           </div>
         </div>
-        <div className="w-[30%] h-full"></div>
       </div>
       <Sticky />
       <div className="navapp flex flex-col">

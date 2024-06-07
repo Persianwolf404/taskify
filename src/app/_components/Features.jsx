@@ -21,7 +21,7 @@ export default function Features() {
   const bolt_secondline = useRef(null);
   const bolt_title = useRef(null);
   const bolt_text = useRef(null);
-  const tilted_box = useRef(null);
+  const titled_box = useRef(null);
   const elegance_first_line = useRef(null);
   const elegance_second_line = useRef(null);
   const elegance_logo = useRef(null);
@@ -41,17 +41,17 @@ export default function Features() {
       const elegance_tl = gsap.timeline({
         scrollTrigger: {
           trigger: elegance_logo.current,
-          start: "top 70%",
-          end: "top 70%",
+          start: "top 90%",
+          end: "top 90%",
           toggleActions: "play none reverse none",
         },
       });
 
-      gsap.from(tilted_box.current, {
+      gsap.from(titled_box.current, {
         scrollTrigger: {
-          trigger: tilted_box.current,
-          start: "top 65%",
-          end: "top 65%",
+          trigger: titled_box.current,
+          start: "top 100%",
+          end: "top 100%",
           toggleActions: "play none reverse none",
         },
         opacity: 0,
@@ -86,8 +86,8 @@ export default function Features() {
       const code_sample_tl = gsap.timeline({
         scrollTrigger: {
           trigger: explnation_container.current,
-          start: "top 95%",
-          end: "top 95%",
+          start: "top 100%",
+          end: "top 100%",
           toggleActions: "play none reverse none",
         },
       });
@@ -123,16 +123,16 @@ export default function Features() {
       const bolt_timeline = gsap.timeline({
         scrollTrigger: {
           trigger: bolt_icon.current,
-          start: "top 60%",
-          end: "top 60%",
+          start: "top 93%",
+          end: "top 93%",
           toggleActions: "play none reverse none",
         },
       });
       gsap.from(bolt_box.current, {
         scrollTrigger: {
           trigger: bolt_box.current,
-          start: "top 60%",
-          end: "top 60%",
+          start: "top 90%",
+          end: "top 90%",
           toggleActions: "play none reverse none",
         },
         opacity: 0,
@@ -197,18 +197,18 @@ export default function Features() {
 
   return (
     <div
-      className={`${workSans.className}  text-[#efefef] mt-80 flex flex-col mx-[50px] my-0`}
+      className={`${workSans.className}  text-[#efefef] mt-80 flex flex-col large:mx-0 mx-[50px] my-0`}
     >
       <div className="w-full flex">
-        <div className="flex h-[386px] items-center flex-col m-0">
+        <div className="flex h-[386px] large:h-[280px] medium:h-[290px] 2xsmall:h-[160px] small:h-[220px] items-center flex-col m-0">
           <div ref={icon} className="flex relative items-center flex-col m-0">
             <div className="icon-shadow m-0 bg-[#5d5de5]"></div>
             <MdAnimation className="mt-2 text-xl absolute" />
           </div>
-          <div className="flex relative h-[300px]">
+          <div className="flex relative 2xsmall:h-[100px] small:h-[140px] large:h-[200px] h-[300px]">
             <span
               ref={iline}
-              className="w-[3px] absolute rounded border-roanded h-0  purpleline  mt-14"
+              className="w-[3px] absolute rounded border-roanded h-0 purpleline  mt-14"
             ></span>
           </div>
         </div>
@@ -218,7 +218,7 @@ export default function Features() {
           </h3>
           <h2
             ref={itext}
-            className="leading-[52px] mt-11 text-[50px] ml-[45px]"
+            className="leading-[52px] mt-11 2xsmall:text-[15px] 2xsmall:leading-4 small:text-[22px] xsmall:text-[20px] small:leading-[30px] medium:text-[33px] large:text-[40px] large:leading-[45px] text-[50px] ml-[45px]"
           >
             <span className="text-[#5d5de5]">
               Revolutionize Interaction <br />
@@ -233,21 +233,56 @@ export default function Features() {
         ref={code_sample}
         className=" border-gray-800 flex relative border-2 rounded-md w-full "
       >
-        <Image
-          src={"/gsap_animation.avif"}
-          width={2714}
-          height={1828}
-          alt="gsap_code_sample"
-        />
+        <div className="w-[1538px] h-[738px]">
+          {/* <Image
+            src={"/gsap_animation.avif"}
+            width={2714}
+            height={1828}
+            alt="gsap_code_sample"
+          /> */}
+        </div>
+
         <div
           ref={explnation_container}
-          className="p-5 absolute flex flex-col top-[40%] rounded-lg right-[15%] w-[530px] min-h-[300px] border-2 border-gray-800 bg-[#141921]"
+          className="
+        right-[15%]
+        p-5 
+        absolute
+        flex
+        large:top-[10%]
+        large:scale-[0.5]
+        2xlarge:scale-[0.8]
+        xlarge:scale-[0.7]
+        2xlarge:right-[8%]
+        xlarge:right-[1%]
+        medium:scale-[0.8]
+        flex-col 
+        top-[45%]
+        rounded-lg
+        w-[530px]
+        medium:w-[280px]
+        medium:h-[220px]
+        medium:mt-20
+        min-h-[300px]
+        border-2 
+        border-gray-800 
+        bg-[#141921]
+        small:scale-[1]
+        small:mt-0
+        small:w-[170px]
+        small:h-[190px]
+        small:min-h-[190px]
+        small:top-[40%]
+        small:p-2
+        small:right-[10%]
+      
+        "
         >
           <div ref={explnation}>
-            <h2 className="text-[#5d5de5] text-3xl">
+            <h2 className="text-[#5d5de5] small:text-[10px] medium:text-lg text-3xl">
               GSAP: Crafting Web Magic!
             </h2>
-            <p className="text-2xl mt-9 text-[#AAB2BB]">
+            <p className="text-2xl small:mt-4 mt-9 text-[#AAB2BB] small:leading-3 medium:text-xs small:text-[7px]">
               See this code? It's like a magic wand for websites. With GSAP, we
               can make logos dance, buttons bounce, and text spin around—making
               the website look awesome and lively! It's like painting with
@@ -260,7 +295,7 @@ export default function Features() {
         </div>
         <span
           ref={code_sample_shadow}
-          className="filter absolute bottom-0 right-[14%] rounded-full w-[500px] h-[500px] bg-[#5d5de5] z-[-1]"
+          className="filter absolute bottom-0 right-[14%] rounded-full w-[500px] large:hidden h-[500px] bg-[#5d5de5] z-[-1]"
         />
       </div>
 
@@ -271,7 +306,7 @@ export default function Features() {
         ></span>
       </div>
       <div className="w-full flex">
-        <div className="flex h-[386px] items-center flex-col m-0">
+        <div className="flex h-[386px] medium:h-[250px] small:h-[200px] items-center flex-col m-0">
           <div
             ref={elegance_logo}
             className="flex relative items-center flex-col m-0"
@@ -295,7 +330,7 @@ export default function Features() {
           </h3>
           <h2
             ref={elegance_paragraph}
-            className="leading-[57px] mt-11 text-[50px] ml-[45px]"
+            className="leading-[57px] 2xsmall:text-[18px] xsmall:text-[22px] small:text-[26px] small:leading-[30px] mt-11 medium:text-[35px] medium:leading-[40px] text-[50px] ml-[45px]"
           >
             <span className="text-[#5d5de5]">
               Innovating Web Design
@@ -306,34 +341,36 @@ export default function Features() {
         </div>
       </div>
 
-      <div ref={tilted_box} className="w-full">
-        <div className="w-[100%] h-[550px] relative ">
+      <div ref={titled_box} className="w-full">
+        <div className="w-[100%] small:h-[450px] h-[550px] relative ">
           <Infobox
             color={"#5d5de5"}
             Children={() => (
               <>
-                <div className="w-full flex h-full p-5">
-                  <div className="flex flex-col p-10 pt-5 z-10 m-0 w-[50%]">
-                    <p className="text-3xl text-[#8c96a1]">
+                <div className="w-full xlarge:flex-col flex h-full small:p-1 p-5">
+                  <div className="flex flex-col small:p-3 p-10 xlarge:w-full pt-5 z-10 m-0 w-[50%]">
+                    <p className="text-3xl small:text-2xl text-[#8c96a1]">
                       <span className="font-semi-bold text-white">
                         Taskify{" "}
                       </span>
                       creates unique user interface designs to ensure websites
                       are both engaging and memorable experiences for visitors
                     </p>
-                    <div className="mt-auto flex relative m-0">
-                      <div className="m-0 relative flex group">
-                        <a
-                          href="#"
-                          className="font-semi-bold text-3xl z-20 text-white"
-                        >
-                          checkout taskify's github
-                        </a>
-                        <span className="absolute h-full mt-2 border-white border-b-2 w-0 group-hover:w-full transition-all duration-300"></span>
+                    <div className="large:hidden flex absolute bottom-10 m-0">
+                      <div className="mt-auto relative m-0">
+                        <div className="m-0 relative flex group">
+                          <a
+                            href="#"
+                            className="font-semi-bold text-3xl z-20 text-white"
+                          >
+                            checkout taskify's github
+                          </a>
+                          <span className="absolute h-full mt-2 border-white border-b-2 w-0 group-hover:w-full transition-all duration-300"></span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className="w-[50%] mt-auto mr-0 z-10">
+                  <div className="w-[50%] mt-auto large:m-auto large:scale-[1.3] mr-0 z-10">
                     <Image
                       className="mr-0"
                       src="/ui.avif"
@@ -347,15 +384,15 @@ export default function Features() {
             )}
           />
         </div>
-        <div className="flex mt-4 justify-between w-full">
-          <div className="m-0  w-[49.5%] h-[750px] rounded-md ">
+        <div className="flex mt-4 xlarge:flex-col justify-between w-full">
+          <div className="m-0 xlarge:w-full w-[49.5%] xlarge:h-auto h-[750px] rounded-md ">
             <Infobox
               color={"#5d5de5"}
               Children={() => (
                 <>
-                  <div className="w-full h-full z-10 p-10 flex flex-col">
+                  <div className="w-full h-full z-10 p-10 small:p-6 flex flex-col">
                     <div className="!z-20">
-                      <p className="text-2xl !z-20 text-[#8c96a1]">
+                      <p className="text-2xl small:text-xl !z-20 text-[#8c96a1]">
                         <span className="font-semi-bold text-white">
                           Taskify{" "}
                         </span>
@@ -367,17 +404,24 @@ export default function Features() {
                         responsive, ensuring excellent user experiences
                       </p>
                     </div>
-                    <div className="mt-auto z-10 m-0">
-                      <div className="g w-[380px]  ">
-                        <div>
+                    <div className="xlarge:my-auto flex mt-auto z-10 m-0">
+                      <div className="w-[380px]  ">
+                        <di className="mx-auto">
                           <Image
-                            className="rounded-xl"
+                            className="rounded-xl xlarge:hidden large:scale-[1] scale-[1.2] large:block"
                             src={"/analyz.avif"}
                             width={1179}
                             height={2213}
                             alt="cover"
                           ></Image>
-                        </div>
+                          <Image
+                            className="rounded-xl hidden scale-[2] large:hidden my-20 mt-40 xlarge:block"
+                            src={"/analyz-mobile.avif"}
+                            width={1328}
+                            height={234}
+                            alt="cover"
+                          ></Image>
+                        </di>
                       </div>
                     </div>
                   </div>
@@ -385,14 +429,14 @@ export default function Features() {
               )}
             />
           </div>
-          <div className="m-0 w-[49.5%] h-[750px] rounded-md ">
+          <div className="m-0 xlarge:w-full xlarge:mt-5 w-[49.5%] xsmall:h-[500px] small:h-[650px] h-[750px] rounded-md ">
             <Infobox
               color={"#5d5de5"}
               Children={() => (
                 <>
-                  <div className="p-10 !z-20">
-                    <div className="absolute pr-10 !z-20">
-                      <p className="text-2xl !z-20 text-[#8c96a1]">
+                  <div className="p-10 small:p-6 h-full relative   !z-20">
+                    <div className="absolute flex pr-10 !z-20">
+                      <p className="text-2xl xsmall:text-lg !z-20 text-[#8c96a1]">
                         <span className="font-semi-bold text-white">
                           Taskify{" "}
                         </span>
@@ -403,9 +447,9 @@ export default function Features() {
                         and elevating brands
                       </p>
                     </div>
-                    <div className="w-[450px] bottom-20 !z-20 absolute   m-0">
+                    <div className=" w-full  relative !z-20 h-full ">
                       <Image
-                        className="rounded-lg border-gray-800 border-2"
+                        className="rounded-lg absolute bottom-0 border-gray-800 border-2"
                         src={"/3dss.avif"}
                         alt="planet"
                         width={1397}
@@ -418,7 +462,7 @@ export default function Features() {
             />
           </div>
         </div>
-        <div className="flex ml-3 relative m-0 h-[150px]">
+        <div className="flex ml-3 relative m-0 medium:h-[90px] h-[150px]">
           <span
             ref={bolt_firstline}
             className="w-[3px] absolute rounded border-roanded h-0  reverse-greenline  "
@@ -433,7 +477,7 @@ export default function Features() {
               <div className="icon-shadow m-0 bg-[#3fb950]"></div>
               <BsLightningCharge className="mt-2 text-xl absolute rotate-12" />
             </div>
-            <div className="flex ml-3 relative m-0 mt-10 h-[300px]">
+            <div className="flex ml-3 relative m-0 mt-10 medium:h-[230px] small:h-[170px] h-[300px]">
               <span
                 ref={bolt_secondline}
                 className="w-[3px] absolute rounded border-roanded h-0  greenline  "
@@ -443,13 +487,13 @@ export default function Features() {
           <div className="m-0 mt-10 flex flex-col">
             <h3
               ref={bolt_title}
-              className={`ml-[50px] font-[500]  text-[24px]`}
+              className={`ml-[50px] font-[500] 2xsmall:text-[20px] text-[24px]`}
             >
               Responsive Web design
             </h3>
             <h2
               ref={bolt_text}
-              className="leading-[52px] mt-11 text-[50px] ml-[45px]"
+              className="leading-[52px] 2xsmall:text-[18px] xsmall:text-[22px] mt-11 text-[50px] medium:text-[40px] small:text-[28px] small:leading-[35px] ml-[45px]"
             >
               <span className="text-[#3fb950]">
                 Adapting to Every Device <br />
@@ -459,14 +503,17 @@ export default function Features() {
             </h2>
           </div>
         </div>
-        <div ref={bolt_box} className="w-full  h-[400px]  ">
+        <div
+          ref={bolt_box}
+          className="w-full 2xsmall:min-h-[350px] min-h-[400px]  "
+        >
           <Infobox
             color={"#3fb950"}
             Children={() => (
               <>
                 <div className="w-full flex h-full p-5">
-                  <div className="flex flex-col p-10 pt-5 z-10 m-0 w-full">
-                    <p className="text-2xl text-[#8c96a1]">
+                  <div className="flex flex-col p-10 small:p-1 pt-5 z-10 m-0 w-full">
+                    <p className="text-2xl 2xsmall:text-lg xsmall:text-xl mb-40 text-[#8c96a1]">
                       <span className="font-semi-bold text-white">
                         Taskify{" "}
                       </span>
@@ -481,7 +528,7 @@ export default function Features() {
                       <div className="m-0 relative flex group">
                         <a
                           href="#"
-                          className="font-semi-bold text-3xl z-20 text-white"
+                          className="font-semi-bold 2xsmall:text-xl xsmall:text-2xl text-3xl z-20 text-white"
                         >
                           checkout taskify's github
                         </a>

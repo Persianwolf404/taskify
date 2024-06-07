@@ -15,6 +15,16 @@ module.exports = {
       fontFamily: {
         freeman: ["var(--font-freeman)"],
       },
+      screens: {
+        "2xlarge": { max: "1500px" },
+        xlarge: { max: "1199px" },
+        large: { max: "992px" },
+        medium: { max: "767px" },
+        small: { max: "576px" },
+        xsmall: { max: "425px" },
+        "2xsmall": { max: "375px" },
+        "3xsmall": { max: "321px" },
+      },
     },
   },
   plugins: [],

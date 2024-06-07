@@ -18,7 +18,7 @@ function Cleanup() {
     return () => ctx.revert();
   }, []);
   return (
-    <div ref={whycon} className="h-auto  w-[50%]">
+    <div ref={whycon} className="h-auto large:w-[45%] medium:hidden w-[50%]">
       <h4 ref={why} className="text-[#c1c9d3] text-[1.3em] font-meduim">
         Why Taskify Exist?
       </h4>

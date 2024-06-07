@@ -57,7 +57,7 @@ export default function Triplead() {
   return (
     <section
       ref={container}
-      className=" mt-[250px] text-[9rem] sora flex flex-col "
+      className=" mt-[250px] large:hidden text-[9rem] sora flex flex-col "
     >
       <h1 ref={first} className="ov font-[500] italic sora text-white">
         UX/UI Design

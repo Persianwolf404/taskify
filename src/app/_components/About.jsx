@@ -29,43 +29,38 @@ export default function About() {
         lineItem.innerHTML += `<div class="line-mask"></div>`;
       });
     }
-    
 
     runSplit();
-    window.addEventListener("resize", function () {
-      text.revert();
-      runSplit();
-      anime();
-    });
+    // window.addEventListener("resize", function () {
+    //   text.revert();
+    //   runSplit();
+    //   anime();
+    // });
     const anime = () => {
-
-
-  const myEl = document.querySelectorAll(".line");
-  myEl.forEach((triggerElement) => {
-    const targetElement = triggerElement.querySelector(".line-mask");
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: triggerElement,
-        start: "top 65%",
-        end: "bottom 65%",
-        scrub: 1,
-      },
-    });
-    tl.to(targetElement, {
-      width: "0%",
-      duration: 1,
-    });
-  });
- 
-
+      const myEl = document.querySelectorAll(".line");
+      myEl.forEach((triggerElement) => {
+        const targetElement = triggerElement.querySelector(".line-mask");
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: triggerElement,
+            start: "top 65%",
+            end: "bottom 65%",
+            scrub: 1,
+          },
+        });
+        tl.to(targetElement, {
+          width: "0%",
+          duration: 1,
+        });
+      });
     };
     anime();
   }, []);
 
   return (
-    <section className="flex  w-full mt-20 relative">
+    <section className="flex  w-full mt-20 medium:mt-0 relative">
       <Cleanup />
-      <div className="w-[50%] flex justify-start text-[3.2em] leading-[1.2]">
+      <div className="w-[50%] large:w-[55%] 3xsmall:text-[1em] 2xsmall:text-[1.2em] xsmall:text-[1.4em] medium:w-full flex justify-start small:text-[1.5em] large:text-[2.1em] xlarge:text-[2.5em] text-[3.2em] leading-[1.2]">
         <h2 className="w-[800px] ">
           <div className="page-wrapper">
             <main className="main-wrapper">

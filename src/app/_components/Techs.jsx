@@ -124,29 +124,33 @@ function Techs() {
   }, []);
 
   return (
-    <div className="flex mt-20  min-h-[526px] flex-col pt-4 w-full">
-      <div className="w-full m-0 overflow-hidden relative ">
+    <div className="flex mt-20 min-h-[526px] flex-col pt-4 w-full">
+      <div className="w-full  m-0 overflow-hidden relative ">
         <div
           ref={title_line}
           className="absolute w-full h-full bg-[#0d1117] z-10"
         ></div>
-        <div className="m-0 mt-4 px-[50px] w-full items-center mb-10  flex">
+        <div className="m-0 medium:px-0 mt-4 px-[50px] w-full items-center mb-10  flex">
           <span className="w-3 m-0 h-3 flex rounded-full bg-[#c1c9d3] items-center justify-center ">
             <span className="bg-[#0d1117] mr-[1.5px] mt-[0.5px] w-[80%] h-[80%] rounded-full"></span>
           </span>
-          <div className="flex w-full">
+          <div className="flex w-full ">
             <span className="w-full h-[2px] bg-[#c1c9d3] "></span>
-            <h2 className="absolute right-[20%] text-3xl font-medium	top-0 bottom-0 bg-[#0d1117] text-[#c1c9d3] px-2">
+            <h2 className="absolute right-[20%] 2xsmall:text-xl 2xsmall:top-2 2xsmall:right-[4%]  small:text-2xl small:top-1 small:right-[10%] text-3xl font-medium	top-0 bottom-0 bg-[#0d1117] text-[#c1c9d3] px-2">
               Taskify's Technical Skills
             </h2>
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap w-full">
+      <div className="flex flex-wrap justify-center w-full">
         {paths.map((path) => (
           <>
             <Suspense fallback={null}>
-              <div id={path} className=" !m-0 w-[20%]" key={path}>
+              <div
+                id={path}
+                className=" !m-0 large:w-[25%] small:w-1/3 2xsmall:w-1/2 w-[20%]"
+                key={path}
+              >
                 <Canvas
                   dpr={[1, 2]}
                   gl={{ preserveDrawingBuffer: true }}

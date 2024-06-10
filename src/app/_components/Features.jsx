@@ -41,8 +41,8 @@ export default function Features() {
       const elegance_tl = gsap.timeline({
         scrollTrigger: {
           trigger: elegance_logo.current,
-          start: "top 90%",
-          end: "top 90%",
+          start: "top 70%",
+          end: "top 70%",
           toggleActions: "play none reverse none",
         },
       });
@@ -50,8 +50,8 @@ export default function Features() {
       gsap.from(titled_box.current, {
         scrollTrigger: {
           trigger: titled_box.current,
-          start: "top 100%",
-          end: "top 100%",
+          start: "top 70%",
+          end: "top 70%",
           toggleActions: "play none reverse none",
         },
         opacity: 0,
@@ -61,7 +61,7 @@ export default function Features() {
 
       elegance_tl
         .to(elegance_first_line.current, {
-          height: "100%",
+          height: "70%",
           duration: 0.2,
         })
         .from(elegance_logo.current, {
@@ -86,8 +86,8 @@ export default function Features() {
       const code_sample_tl = gsap.timeline({
         scrollTrigger: {
           trigger: explnation_container.current,
-          start: "top 100%",
-          end: "top 100%",
+          start: "top 80%",
+          end: "top 80%",
           toggleActions: "play none reverse none",
         },
       });
@@ -96,6 +96,7 @@ export default function Features() {
         .from(code_sample.current, {
           opacity: 0,
           x: 50,
+          duration: 0.2,
         })
         .from(explnation_container.current, {
           opacity: 0,
@@ -123,16 +124,16 @@ export default function Features() {
       const bolt_timeline = gsap.timeline({
         scrollTrigger: {
           trigger: bolt_icon.current,
-          start: "top 93%",
-          end: "top 93%",
+          start: "top 73%",
+          end: "top 73%",
           toggleActions: "play none reverse none",
         },
       });
       gsap.from(bolt_box.current, {
         scrollTrigger: {
           trigger: bolt_box.current,
-          start: "top 90%",
-          end: "top 90%",
+          start: "top 70%",
+          end: "top 70%",
           toggleActions: "play none reverse none",
         },
         opacity: 0,
@@ -231,15 +232,16 @@ export default function Features() {
 
       <div
         ref={code_sample}
-        className=" border-gray-800 flex relative border-2 rounded-md w-full "
+        className=" border-gray-800 bg-red-200  min-h-[690px] 3xsmall:[128px] 2xsmall:min-h-[152px] xsmall:min-h-[179px] small:min-h-[203px] medium:min-h-[276px] large:min-h-[369px] 2xlarge:min-h-[529px] xlarge:min-h-[428px] flex relative border-2 rounded-md w-full "
       >
-        <div className="w-[1538px] h-[738px]">
-          {/* <Image
+        <div>
+          <Image
+            className="w-full "
             src={"/gsap_animation.avif"}
-            width={2714}
-            height={1828}
+            width={1714}
+            height={828}
             alt="gsap_code_sample"
-          /> */}
+          />
         </div>
 
         <div

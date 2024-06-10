@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-three/drei": "^9.0.1",
+    "cloc": "^2.0.0-cloc",
     "gsap": "^3.12.5",
     "gsap-trial": "^3.12.5",
     "next": "14.2.3",

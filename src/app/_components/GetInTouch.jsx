@@ -3,11 +3,18 @@ import React, { useEffect, useRef } from "react";
 import { SiGooglegemini } from "react-icons/si";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaInstagram } from "react-icons/fa6";
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { HiOutlineMail } from "react-icons/hi";
+import { IoCallOutline } from "react-icons/io5";
 gsap.registerPlugin(ScrollTrigger);
 
 const GetInTouch = () => {
   const marqueeRef = useRef(null);
   const getInTouch = useRef(null);
+  const getInTouchpt = useRef(null);
   const trigger = useRef(null);
   const line = useRef(null);
   const privacy = useRef(null);
@@ -29,7 +36,18 @@ const GetInTouch = () => {
     let ctx = gsap.context(() => {
       gsap.from(getInTouch.current, {
         scrollTrigger: {
-          trigger: getInTouch.current,
+          trigger: getInTouchpt.current,
+          start: "top 70%",
+          end: "top 70%",
+          toggleActions: "play none reverse none",
+        },
+        opacity: 0,
+        scale: 0.7,
+        duration: 0.3,
+      });
+      gsap.from(getInTouchpt.current, {
+        scrollTrigger: {
+          trigger: getInTouchpt.current,
           start: "top 70%",
           end: "top 70%",
           toggleActions: "play none reverse none",
@@ -79,26 +97,52 @@ const GetInTouch = () => {
       className="relative w-full flex items-center justify-center h-screen text-center "
     >
       <div className="text-white mt-20 w-full">
-        <div ref={getInTouch}>
+        <div>
           <div className="flex justify-center">
             <div className="m-0 relative  flex  group">
               <a
                 href="#"
                 className="font-semi-bold cursor-pointer text-center first-line:text-3xl w z-20 text-[#05BAB3]"
+                ref={getInTouch}
               >
                 Get in touch!
               </a>
               <span className="absolute h-full mt-2 border-white border-b-2 w-0 group-hover:w-full transition-all duration-300"></span>
             </div>
           </div>
-          <div className="w-full flex mt-10 justify-center relative m-0">
-            <h2 className="text-7xl leading-[100px] font-medium">
+          <div className="w-full flex  mt-10 justify-center relative m-0">
+            <div className="items-center ml-6 justify-start">
+              <div className="w-10 cursor-pointer h-10">
+                <FaXTwitter className="text-4xl rotate-[5]" />
+              </div>
+              <div className="my-5 w-10 cursor-pointer h-10">
+                <IoCallOutline className="text-4xl" />
+              </div>
+              <div className="w-10 cursor-pointer h-10">
+                <FaTelegramPlane className="text-4xl rotate-[5]" />
+              </div>
+            </div>
+            <h2
+              className="text-7xl leading-[90px] font-medium"
+              ref={getInTouchpt}
+            >
               Ready To Get <br />
               Started?
             </h2>
+            <div className="items-center mr-6 justify-start">
+              <div className="w-10 cursor-pointer h-10">
+                <FaInstagram className="text-4xl" />
+              </div>
+              <div className="my-5 w-10 cursor-pointer h-10">
+                <HiOutlineMail className="text-4xl rotate-[5]" />
+              </div>
+              <div className="w-10 cursor-pointer h-10">
+                <FaWhatsapp className="text-4xl rotate-[4]" />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="overflow-hidden whitespace-nowrap">
+        <div className="overflow-hidden mt-20 whitespace-nowrap">
           <div
             ref={marqueeRef}
             className="text-[#05BAB3] flex flex-nowrap cursor-pointer mt-10 pt-10 "

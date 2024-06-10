@@ -60,7 +60,7 @@ const Infobox = ({ color, Children }) => {
   };
 
   return (
-    <Tilt className="w-full h-full box" options={options}>
+    <Tilt className="w-full cursor-pointer h-full box" options={options}>
       <div
         ref={containerRef}
         className="w-[100%] h-full overflow-hidden border-gray-800 border-2 rounded-xl bg-[#151921] relative"

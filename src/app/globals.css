@@ -9,12 +9,12 @@
 body {
   background-color: #0d1117;
   overflow-x: hidden;
+  /* overflow-y: hidden; */
 
 }
 
 .app {
-  width: 85%;
-
+  width: 1533px;
 }
 
 .con {
@@ -303,7 +303,7 @@ extra stuff .jux-linx {
   }
 }
 
-@media (max-width: 1499.98px) {
+@media (max-width: 1532.98px) {
   .app {
     width: 1200px;
   }

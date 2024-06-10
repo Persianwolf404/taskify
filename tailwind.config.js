@@ -16,7 +16,7 @@ module.exports = {
         freeman: ["var(--font-freeman)"],
       },
       screens: {
-        "2xlarge": { max: "1500px" },
+        "2xlarge": { max: "1532px" },
         xlarge: { max: "1199px" },
         large: { max: "992px" },
         medium: { max: "767px" },

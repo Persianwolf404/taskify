@@ -14,7 +14,7 @@ import Loading from "./loading";
 const LazyTechs = lazy(() => import("./_components/Techs"));
 
 export default function Home() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {

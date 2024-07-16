@@ -10,7 +10,6 @@ body {
   background-color: #0d1117;
   overflow-x: hidden;
   /* overflow-y: hidden; */
-
 }
 
 .app {
@@ -346,4 +345,25 @@ extra stuff .jux-linx {
   .app {
     width: 270px;
   }
+}
+
+.paret span {
+  transition: transform 0.5s ease;
+}
+.paret:hover span {
+  transform: translateX(110%); /* Move the element 100% to the right on hover */
+}
+
+.parot span {
+  transition: transform 0.5s ease;
+}
+.parot:hover span {
+  transform: translateX(
+    -110%
+  ); /* Move the element 100% to the right on hover */
+}
+
+.menu-box {
+  transform-origin: bottom center;
+  transition: height 0.5s ease-in-out;
 }

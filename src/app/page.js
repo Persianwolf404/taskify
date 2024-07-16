@@ -15,6 +15,7 @@ const LazyTechs = lazy(() => import("./_components/Techs"));
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -24,6 +25,30 @@ export default function Home() {
 
   //   return () => clearTimeout(timer);
   // }, []);
+  function statemanage() {
+    border_white();
+
+    if (isOpen) {
+      setTimeout(() => {
+        border_trans();
+      }, 500);
+    }
+
+    setIsOpen(!isOpen);
+  }
+
+  function border_trans() {
+    const elements = document.getElementsByClassName("close");
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].style.setProperty("border-bottom", "1px solid transparent");
+    }
+  }
+  function border_white() {
+    const elements = document.getElementsByClassName("menu-box");
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].style.setProperty("border-bottom", "2px solid white");
+    }
+  }
 
   return (
     <>
@@ -35,7 +60,12 @@ export default function Home() {
       <>
         <div
           id="menu"
-          className="z-[100] overflow-hidden flex  text-white border-white fixed w-full h-0 bgd"
+          className={`z-[100] ${
+            isOpen ? "open" : "close"
+          } menu-box overflow-hidden flex  text-white border-white fixed w-full  bgd`}
+          style={{
+            height: isOpen ? "85vh" : "0",
+          }}
         >
           <div className="w-full h-full relative">
             <div className="w-full h-full flex absolute">
@@ -58,7 +88,7 @@ export default function Home() {
         </div>
         <Sticky />
         <div className=" flex flex-col">
-          <Navbar />
+          <Navbar fnc={statemanage} />
           <div className="app">
             <Hero />
             <About />
@@ -67,8 +97,8 @@ export default function Home() {
           <div className="app overflow-hidden">
             <Features />
             <Suspense fallback={<div>Loading...</div>}>
-                <LazyTechs />
-              </Suspense> 
+              <LazyTechs />
+            </Suspense>
             <GraphicDesign />
           </div>{" "}
         </div>

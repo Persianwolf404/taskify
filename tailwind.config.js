@@ -18,7 +18,7 @@ module.exports = {
       screens: {
         "2xlarge": { max: "1532px" },
         xlarge: { max: "1199px" },
-        large: { max: "992px" },
+        large: { max: "991px" },
         medium: { max: "767px" },
         small: { max: "576px" },
         xsmall: { max: "425px" },

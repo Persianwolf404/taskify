@@ -3,7 +3,7 @@ import React from "react";
 import Process from "./Process";
 import Image from "next/image";
 
-function Navbar() {
+function Navbar(props) {
   return (
     <>
       <section className="w-full px-5  z-[101] flex justify-between fixed items-center 2xsmall:p-0 py-3">
@@ -17,7 +17,7 @@ function Navbar() {
           ></Image>
         </div>
         <div className="m-0 2xsmall:scale-[0.8]">
-          <Process />
+          <Process fnc={props.fnc}  />
         </div>
       </section>
     </>

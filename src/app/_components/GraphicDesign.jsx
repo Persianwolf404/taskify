@@ -299,7 +299,7 @@ const GraphicDesign = () => {
             <Tilt options={options}>
               <div
                 ref={musashi}
-                className="cursor-pointer large:w-full overflow-hidden border border-gray-800 2xlarge:w-[550px] 2xlarge:w-[680px] 2xlarge:h-auto w-[800px] rounded-lg h-[650px] "
+                className="cursor-pointer large:w-full overflow-hidden border border-gray-800 xlarge:w-[550px] 2xlarge:w-[680px] 2xlarge:h-auto w-[800px] rounded-lg h-[650px] "
               >
                 <div ref={musashi_children}>
                   <Image
@@ -335,7 +335,7 @@ const GraphicDesign = () => {
             <Tilt options={options}>
               <div
                 ref={lord_of_the_lands}
-                className="cursor-pointer large:mt-20 large:w-full xlarge:w-[550px] 2xlarge:w-[630px] 2xlarge:h-auto w-[750px] overflow-hidden border xlarge:mt-10 mt-20 h-[550px]  border-gray-800 rounded-lg"
+                className="cursor-pointer large:mt-20 large:w-full xlarge:w-[520px] 2xlarge:w-[630px] 2xlarge:h-auto w-[750px] overflow-hidden border xlarge:mt-10 mt-20 h-[550px]  border-gray-800 rounded-lg"
               >
                 <div ref={lord_of_the_lands_children}>
                   <Image

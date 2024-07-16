@@ -17,14 +17,14 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setLoading(false);
-  //     document.body.style.overflowY = "visible";
-  //   }, 1500);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+      document.body.style.overflowY = "visible";
+    }, 1500);
 
-  //   return () => clearTimeout(timer);
-  // }, []);
+    return () => clearTimeout(timer);
+  }, []);
   function statemanage() {
     border_white();
 

@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎯 Taskify
 
-## Getting Started
+**Taskify** is my biggest solo project to date — a bleeding-edge, mobile-responsive task management app built with **Next.js**, custom **3D animations**, and **cinematic transitions** inspired by award-winning websites.
 
-First, run the development server:
+I handcrafted custom **Blender models** and deployed them using **Three.js** and **GSAP**, pushing the boundaries of web interaction and UI storytelling.
+
+---
+
+[🌐 Visit **Taskify** Website ](https://next-taskify-1zqz.vercel.app/)
+
+---
+
+## 🔥 Preview
+
+![Taskify Preview](/public/taskify-preview.gif)
+
+---
+
+## ✨ Key Features
+
+- 🌀 **Immersive Animations**  
+  Leveraging **GSAP** and **Three.js** to deliver buttery-smooth, cinematic transitions and interactive 3D experiences.
+
+- 🧊 **Custom 3D Models**  
+  Built in **Blender**, integrated seamlessly into the UI with performance optimization.
+
+- 📱 **Fully Mobile Responsive**  
+  From large monitors to tiny phones — the design adapts perfectly.
+
+- 🌍 **SEO + Best Practices (100%)**  
+  Optimized for search engines and built with accessibility and maintainability in mind.
+
+- ⚙️ **Performance-Aware (80%)**  
+  Despite heavy assets, maintained great performance thanks to smart optimizations.
+
+- 🧑‍🦯 **Accessible Design**  
+  Color contrast, keyboard navigation, and semantic markup handled seriously.
+
+---
+
+## 📊 Lighthouse Score
+
+![Lighthouse Report](/public/lighthouse-report.png)
+
+> 💡 **Performance**: 80% — due to high-resolution 3D content  
+> ♿ **Accessibility**: 80%  
+> ✅ **Best Practices**: 100%  
+> 🌐 **SEO**: 100%
+
+---
+
+## 🧰 Tech Stack
+
+- **Next.js**  
+- **TypeScript**  
+- **GSAP**  
+- **Three.js**  
+- **Blender (for 3D modeling)**  
+- **Tailwind CSS**  
+- **Vercel** (Deployment)
+
+---
+
+## 📦 Installation
+
+Clone the repo and run locally:
 
 ```bash
+git clone https://github.com/your-username/taskify.git
+cd taskify
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

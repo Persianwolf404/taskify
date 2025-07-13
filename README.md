@@ -1,6 +1,6 @@
 # 🎯 Taskify
 
-**Taskify** is my biggest solo project to date — a bleeding-edge, mobile-responsive task management app built with **Next.js**, custom **3D animations**, and **cinematic transitions** inspired by award-winning websites.
+**Taskify** is my biggest solo project to date a bleeding-edge, mobile-responsive task management app built with **Next.js**, custom **3D animations**, and **cinematic transitions** inspired by award-winning websites.
 
 I handcrafted custom **Blender models** and deployed them using **Three.js** and **GSAP**, pushing the boundaries of web interaction and UI storytelling.
 
